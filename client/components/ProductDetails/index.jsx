@@ -1,13 +1,13 @@
-import React from 'react'
-import ProductListing from './ProductListing'
+import React from "react";
+import ProductListings from "./ProductListing";
 
-const ProductDetails = () => {
+const ProductPage = () => {
   return (
     <div>
-      Product Details
-      <ProductListing />
+      <h1>Product page</h1>
+      <ProductListings />
     </div>
-  )
-}
+  );
+};
 
-export default ProductDetails
+export default ProductPage;
