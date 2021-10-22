@@ -1,23 +1,22 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../../api/api";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProdcutInfo } from '../../state/productSlice';
 
 const ProductListings = () => {
   // {products} comes from our store.js
   const { products } = useSelector((state) => state.allProducts);
-  const { id, title, category } = products[0];
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchProducts(products);
+    dispatch(fetchProdcutInfo());
   }, []);
 
   return (
     <div>
-      {products.map((product) => {
-        console.log("our product", product);
-        <h1>{product.title}</h1>;
-      })}
+      Product listing
+      {products.map((product) => (
+        <h3>{product.title}</h3>
+      ))}
     </div>
   );
 };
