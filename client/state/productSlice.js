@@ -5,7 +5,6 @@ import axios from 'axios';
 export const fetchProdcutInfo = createAsyncThunk(
   'product/fetchProdcutInfo',
   async (dispatch, getState) => {
-    const ourState = getState();
     //this is where we are including our api call
     return await fetch('https://fakestoreapi.com/products').then((res) =>
       res.json(),
