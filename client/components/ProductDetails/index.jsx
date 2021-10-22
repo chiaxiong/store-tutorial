@@ -4,7 +4,9 @@ import { fetchProdcutInfo } from '../../state/productSlice';
 import ProductListings from './ProductListing';
 
 const ProductPage = () => {
-  // {products} comes from our store.js
+  //{products} comes from our productSlice.js
+  //if you have the Redux Toolkit you can also see 
+  //the path how to get the state
   const { products } = useSelector((state) => state.allProducts);
   const dispatch = useDispatch();
 
