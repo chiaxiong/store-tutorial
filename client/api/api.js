@@ -16,7 +16,6 @@ export const fetchProducts = async () => {
     //don't need to include the baseURL since the
     //axios instance will auto add the domain
     const { data } = await api.get(`${ENDPOINTS.PRODUCTS}`); //fetching our data
-    // console.log(data);
     return data;
   } catch (err) {
     console.log(err);

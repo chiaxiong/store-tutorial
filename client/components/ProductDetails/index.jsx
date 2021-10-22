@@ -12,8 +12,6 @@ const ProductPage = () => {
   const products = useSelector(selectProductInfo);
   const dispatch = useDispatch();
 
-  console.log('front end', products);
-
   useEffect(() => {
     dispatch(fetchProdcutInfo());
   }, [dispatch]);
