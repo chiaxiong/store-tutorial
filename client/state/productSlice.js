@@ -6,14 +6,14 @@ export const fetchProdcutInfo = createAsyncThunk(
   'product/fetchProdcutInfo',
   async (dispatch, getState) => {
     //this is where we are including our api call
-    return await fetch('https://fakestoreapi.com/products').then((res) =>
-      res.json(),
-    );
+    const { data } = await axios.get('https://fakestoreapi.com/products');
+    return data;
   },
 );
 
 const initialState = {
   products: [],
+  loading: null,
 };
 
 export const productSlice = createSlice({
@@ -22,6 +22,9 @@ export const productSlice = createSlice({
   reducers: {
     setProducts: (state, { payload }) => {
       state.products = payload;
+    },
+    setLoadingProducts: (state, { payload }) => {
+      state.loading = 'Loading...';
     },
   },
   //performing other reducers functionality that is part of RTK
@@ -39,6 +42,6 @@ export const productSlice = createSlice({
   },
 });
 
-export const { setProducts } = productSlice.actions;
+export const { setProducts, setLoadingProducts } = productSlice.actions;
 
 export default productSlice.reducer;

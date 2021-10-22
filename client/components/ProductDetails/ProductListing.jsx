@@ -1,4 +1,5 @@
 import { ProductContainer } from './styles/StyledProductListings';
+import Image from 'next/image';
 
 const ProductListings = (props) => {
   return (

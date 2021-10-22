@@ -3,12 +3,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProdcutInfo } from '../../state/productSlice';
 import ProductListings from './ProductListing';
 
+import { selectProductInfo } from '../../state/selectors/product';
+
 const ProductPage = () => {
   //{products} comes from our productSlice.js
-  //if you have the Redux Toolkit you can also see 
+  //if you have the Redux Toolkit you can also see
   //the path how to get the state
-  const { products } = useSelector((state) => state.allProducts);
+  const products = useSelector(selectProductInfo);
   const dispatch = useDispatch();
+
+  console.log('front end', products);
 
   useEffect(() => {
     dispatch(fetchProdcutInfo());
@@ -17,9 +21,10 @@ const ProductPage = () => {
   return (
     <div>
       <h1>Product page</h1>
-      {products.map((product) => (
-        <ProductListings {...product} />
-      ))}
+      {products &&
+        products.map((product) => (
+          <ProductListings {...product} key={product.id} />
+        ))}
     </div>
   );
 };

@@ -1,3 +1,11 @@
-import { createSelector } from "@reduxjs/toolkit";
+import { createSelector } from '@reduxjs/toolkit';
 
-export const selectProduct = (state) => state.
+export const selectProductState = ({ allProducts }) => allProducts.products;
+
+export const selectProductInfo = createSelector(
+  selectProductState,
+
+  (state) => {
+    return state;
+  },
+);
