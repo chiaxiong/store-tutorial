@@ -8,11 +8,10 @@ const ProductPage = () => {
   const { products } = useSelector((state) => state.allProducts);
   const dispatch = useDispatch();
 
-  console.log(products);
-
   useEffect(() => {
     dispatch(fetchProdcutInfo());
   }, [dispatch]);
+
   return (
     <div>
       <h1>Product page</h1>
