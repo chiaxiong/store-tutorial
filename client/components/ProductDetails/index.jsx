@@ -6,13 +6,15 @@ import ProductListings from './ProductListing';
 import { selectProductInfo } from '../../state/selectors/product';
 
 const ProductPage = () => {
-  //{products} comes from our productSlice.js
-  //if you have the Redux Toolkit you can also see
-  //the path how to get the state
+  //select allows use to use the slice we're calling from the state tree
   const products = useSelector(selectProductInfo);
+  //putting our data into the state
   const dispatch = useDispatch();
+  console.log(products, 'from the front-end');
 
+  //using useEffect when we want to render the data
   useEffect(() => {
+    //dispatching the thunk and store it in our state
     dispatch(fetchProdcutInfo());
   }, [dispatch]);
 

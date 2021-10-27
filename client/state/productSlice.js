@@ -13,7 +13,6 @@ export const fetchProdcutInfo = createAsyncThunk(
 
 const initialState = {
   products: [],
-  loading: null,
 };
 
 export const productSlice = createSlice({
@@ -22,9 +21,6 @@ export const productSlice = createSlice({
   reducers: {
     setProducts: (state, { payload }) => {
       state.products = payload;
-    },
-    setLoadingProducts: (state, { payload }) => {
-      state.loading = 'Loading...';
     },
   },
   //performing other reducers functionality that is part of RTK
